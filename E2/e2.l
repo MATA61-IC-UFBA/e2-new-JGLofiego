@@ -4,18 +4,16 @@
 %{
 #include "token.h"
 
+void yyerror(char *s, ...);
 %}
-
+NUM [0-9]+
 %%
-
-.       { return ERROR; }
+[ \t]+
+{NUM}     { return NUMBER; }
+"+"       { return PLUS; }
+"-"       { return MINUS; }
+"*"       { return TIMES; } 
+"/"       { return DIV; }
+\n        { return EOL; }
+.         { return ERROR; }
 %%
-
-int main() {
-
-
-}
-
-
-
-
